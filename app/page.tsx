@@ -25,7 +25,7 @@ export default function Home() {
             </Link>
 
             <Link
-              className="bg-indigo-600 hover:bg-indigo-500 basis-full text-white text-center text-light px-10 py-3 mb-5 rounded-2xl"
+              className="border-indigo-600 hover:bg-indigo-500 basis-full text-white text-center text-light px-10 border-2 py-3 mb-5 rounded-2xl"
               href="/login"
             >
               Create Account
