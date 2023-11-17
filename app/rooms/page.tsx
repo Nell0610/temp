@@ -149,7 +149,7 @@ export default function Page() {
           <div>Username's Room</div>
         </div>
 
-        <div className="bg-slate-900 basis-3/4 rounded-3xl z-0">
+        <div className="bg-slate-900 bg-logo bg-contain bg-no-repeat bg-center opacity-100 basis-3/4 rounded-3xl z-0">
           <div className="">
             <RoomProvider
               id={roomId}
@@ -165,30 +165,34 @@ export default function Page() {
           </div>
         </div>
         <div className="flex flex-row p-5 justify-between">
+          <div>
+            <Image
+              className=""
+              src="/human1.svg"
+              height={30}
+              width={30}
+              alt="your name"
+            ></Image>
+            <div className="bg-white">hey</div>
+          </div>
+
           <Image
             className=""
-            src="/backarrow.svg"
+            src="/human2.svg"
             height={30}
             width={30}
             alt="your name"
           ></Image>
           <Image
             className=""
-            src="/backarrow.svg"
+            src="/human3.svg"
             height={30}
             width={30}
             alt="your name"
           ></Image>
           <Image
             className=""
-            src="/backarrow.svg"
-            height={30}
-            width={30}
-            alt="your name"
-          ></Image>
-          <Image
-            className=""
-            src="/backarrow.svg"
+            src="/human4.svg"
             height={30}
             width={30}
             alt="your name"

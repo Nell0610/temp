@@ -5,8 +5,15 @@ export default function Home() {
     <main className="grow-0 my-auto">
       <div className="h-screen flex justify-center items-center">
         <div className="flex flex-col items-center justify-center">
-          <div className="text-zinc-50 italic text-4xl font-extrabold text-center">
+          <div className="text-zinc-50 italic flex flex-row text-4xl font-extrabold text-center">
             quest
+            <Image
+              className="ml-2"
+              src="/biglogo.svg"
+              height={40}
+              width={40}
+              alt="your name"
+            ></Image>
           </div>
 
           <div className="text-zinc-50 italic mt-5 text-center px-12">
