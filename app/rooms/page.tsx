@@ -4,6 +4,8 @@ import Link from "next/link";
 import { memo } from "react";
 import Room from "./Room";
 import Popup from "reactjs-popup";
+import Timer from "./Timer"
+import React from 'react'
 import {
   Modal,
   ModalContent,
@@ -128,12 +130,20 @@ function Loading() {
     </div>
   );
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 export default function Page({ params }: { params: { slug: string } }) {
   const roomId = "1111";
   const [player1tasks, setplayer1tasks] = useState("");
   const [player2tasks, setplayer2tasks] = useState("");
   const [player3tasks, setplayer3tasks] = useState("");
   const [player4tasks, setplayer4tasks] = useState("");
+  const [active, setActive] = React.useState(false)
+  const toggle = () =>{
+    setActive(val => !val);
+  }
   return (
     <main className="grow-0 my-auto">
       <div className="h-screen flex flex-col px-32 bg-black">
@@ -150,11 +160,21 @@ export default function Page({ params }: { params: { slug: string } }) {
             </Link>
           </div>
           <div className="basis-3/12 flex flex-row bg-logo bg-cover rounded-xl items-center justify-around">
+<<<<<<< Updated upstream
             <div className="font-bold text-4xl px-10 py-3 mb-5">aaaa</div>
 
             <button className="bg-indigo-600 hover:bg-indigo-500 text-white text-center text-light px-10 py-3 mb-5 rounded-2xl">
               Start
             </button>
+=======
+            
+            <div className="font-bold text-4xl px-10 py-3 mb-5 mt-5"><Timer active={active}/></div>
+
+            <button onClick={toggle} className="bg-indigo-600 hover:bg-indigo-500 text-white text-center text-light px-10 py-3 mb-5 mt-5 rounded-2xl">
+              {active? "Stop": "Start"}
+            </button>
+            
+>>>>>>> Stashed changes
           </div>
           <div className="">ID:1234</div>
         </div>
