@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        logo: "url('../public/biglogo.svg')",
+        logo: "url('../public/frame24logo.svg')",
       },
     },
   },

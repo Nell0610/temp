@@ -49,8 +49,11 @@ function Example() {
   return (
     <div className="p-10 flex flex-col">
       <div className="flex flex-row justify-center items-center">
-        <Button className="text-center font-bold text-3xl" onPress={onOpen}>
-          +
+        <Button
+          className="text-center bg-transparent border-white border-2 p-3 rounded-2xl text-xl"
+          onPress={onOpen}
+        >
+          Add Task &nbsp; +
         </Button>
         <Modal
           className="bg-zinc-900 w-3/4 h-1/2  text-center rounded-xl"
@@ -125,7 +128,7 @@ function Loading() {
     </div>
   );
 }
-export default function Page() {
+export default function Page({ params }: { params: { slug: string } }) {
   const roomId = "1111";
   const [player1tasks, setplayer1tasks] = useState("");
   const [player2tasks, setplayer2tasks] = useState("");
@@ -134,8 +137,8 @@ export default function Page() {
   return (
     <main className="grow-0 my-auto">
       <div className="h-screen flex flex-col px-32 bg-black">
-        <div className="flex pt-4 flex-row text-zinc-50 justify-between">
-          <div>
+        <div className="flex pt-4 h-24 flex-row text-zinc-50 mb-5 justify-between items-end">
+          <div className="">
             <Link href="/">
               <Image
                 className=""
@@ -146,10 +149,16 @@ export default function Page() {
               ></Image>
             </Link>
           </div>
-          <div>Username's Room</div>
-        </div>
+          <div className="basis-3/12 flex flex-row bg-logo bg-cover rounded-xl items-center justify-around">
+            <div className="font-bold text-4xl px-10 py-3 mb-5">aaaa</div>
 
-        <div className="bg-slate-900 bg-logo bg-contain bg-no-repeat bg-center opacity-100 basis-3/4 rounded-3xl z-0">
+            <button className="bg-indigo-600 hover:bg-indigo-500 text-white text-center text-light px-10 py-3 mb-5 rounded-2xl">
+              Start
+            </button>
+          </div>
+          <div className="">ID:1234</div>
+        </div>
+        <div className="bg-logo bg-cover border-white border-2 bg-no-repeat bg-center opacity-100 basis-3/4 rounded-3xl z-0">
           <div className="">
             <RoomProvider
               id={roomId}
@@ -183,6 +192,7 @@ export default function Page() {
             width={30}
             alt="your name"
           ></Image>
+          
           <Image
             className=""
             src="/human3.svg"
