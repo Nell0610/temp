@@ -48,7 +48,13 @@ export type Notes = LiveMap<string, Note>;
 // Optionally, the type of custom events broadcasted and listened for in this
 // room. Must be JSON-serializable.
 // type RoomEvent = {};
-
+type UserMeta = {
+  id: string;
+  info: {
+    name: string;
+    color: string;
+  };
+};
 export const {
   suspense: {
     RoomProvider,
@@ -56,5 +62,6 @@ export const {
     useOthers,
     useUpdateMyPresence,
     useMutation,
+    useSelf
   },
 } = createRoomContext<Presence, Storage /* UserMeta, RoomEvent */>(client);

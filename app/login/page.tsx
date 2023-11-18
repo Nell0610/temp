@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, {useState} from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { collection, addDoc } from 'firebase/firestore';
 import { useRouter } from "next/navigation";
 import { db } from "../../config";
@@ -14,31 +14,33 @@ export default function Home() {
   const [major, setMajor] = useState('');
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+    const user = auth.currentUser;
       if (user) {
-        createUserData();
-        router.push('/create-join-room');
-      }
-      else {
-        console.error("No user is signed in");
-      }
-    })
-  }
+        await updateProfile(user, {displayName: name});
 
-  const createUserData = async () => {
-    
-    try{const WriteUserData = await addDoc(collection(db, "users"), {
-      name: name,
-      major: major
-      });
-      console.log();
-    }catch(e){
-      console.error("Error storing user data");
+        try{
+          const WriteUserData = await addDoc(collection(db, "users"), {
+            name: name,
+            major: major,
+            uid: user.uid,
+          });
+
+          console.log("User data stored with ID:", WriteUserData.id);
+          router.push('/create-join-room');
+
+        } catch(error){
+            console.error("Error storing user data");
+
+        }
+      } else {
+          console.error("No user is signed in");
+      }
     }
-  };
+
+
   
   return (
     <main className="grow-0 my-auto">

@@ -6,7 +6,7 @@ import 'firebase/firestore';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore'
 import {initializeApp} from 'firebase/app';
-import { serverTimestamp, collection, addDoc, getFirestore} from 'firebase/firestore';
+import { serverTimestamp, collection, addDoc, getFirestore, doc,getDoc, setDoc} from 'firebase/firestore';
 import { useRouter} from 'next/navigation';
 import {db} from '../../config';
 // import firebaseConfig from './ZotQuest 2/temp/firebaseConfig'
@@ -25,13 +25,8 @@ export default function CreateRoom(){
         }
     },[roomId, router])
     const createRoom = async () => {
-        // if(!roomName){
-        //     setError("Please enter a room name.");
-        //     return;
-        // }
         try{
             const roomRef = await addDoc(collection(db, "rooms"), {
-                name: roomName
             });
             console.log("Room ID: ", roomRef.id)
             setRoomId(roomRef.id);

@@ -1,12 +1,15 @@
 "use client"
 import React from 'react'
 import { useRouter} from 'next/navigation';
+import { serverTimestamp, collection, addDoc, getFirestore, doc,getDoc, setDoc} from 'firebase/firestore';
+import {db} from '../../config';
 export default function Home(){
     const [roomId, setRoomId] = React.useState('');
     const router = useRouter();
     function handleClick(){
         router.push(`/rooms/${roomId}`)
     }
+    
     return(
         <>
             <div className="grid">

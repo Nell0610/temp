@@ -11,8 +11,5 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_100_854" result="shape"/>
 </filter>
 </defs>
-<<<<<<< Updated upstream
 </svg>
-=======
-</svg>
->>>>>>> Stashed changes
+
